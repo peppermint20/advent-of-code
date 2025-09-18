@@ -12,16 +12,6 @@
 namespace util
 {
 
-
-struct pair_hash
-{
-    inline std::size_t operator()(const std::pair<int, int>& v) const
-    {
-        return v.first * 31 + v.second;
-    }
-};
-
-
 std::vector<std::string> FileToVector(const std::string& filename)
 {
     std::vector<std::string> arr;
@@ -34,10 +24,11 @@ std::vector<std::string> FileToVector(const std::string& filename)
     }
     while (file >> s)
     {
-        arr.push_back(std::move(s));
+        arr.push_back(s);
     }
     return arr;
 }
+
 } // namespace util
 
 #endif
